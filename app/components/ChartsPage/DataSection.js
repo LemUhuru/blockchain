@@ -1,4 +1,4 @@
-import { React, Component } from 'react'
+import React, { Component } from 'react'
 import DataCard from './DataCard'
 
 class DataSection extends Component {
@@ -12,7 +12,7 @@ class DataSection extends Component {
     return (
       <div className="data-section">
         <ul className="data-section__list">
-          <li><Data</li>
+          <li>Data</li>
           <li>Currency Statistics</li>
           <li>Block Details</li>
           <li>Mining Information</li>
@@ -24,4 +24,4 @@ class DataSection extends Component {
   }
 }
 
-export default Navigation
+export default DataSection

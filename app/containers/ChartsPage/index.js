@@ -9,14 +9,13 @@
  * the linting exception.
  */
 
-import React from 'react';
+import React, { PureComponent } from 'react';
+import ChartsPage from '../../components/ChartsPage/ChartsPage'
 
-export default class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+export default class ChartsPageContainer extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <h1>
-        Hello, world!
-      </h1>
-    );
+      <ChartsPage />
+    )
   }
 }

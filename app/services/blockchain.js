@@ -14,6 +14,16 @@ export function getChartData(params) {
     })
 }
 
+export function getChartImage(chartName) {
+  return null
+}
+
+export function getChartLink(chartName) {
+  // link used in - 'View Chart' button
+  return null
+}
+
+
 export function getBlockChainStats(params) {
   const STATS_URL = getFormattedURI(STATS_API_BASE_URL, params)
   return fetch(STATS_URL)

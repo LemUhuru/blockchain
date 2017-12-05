@@ -13,10 +13,11 @@
 
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import '../../Styles/main.scss'
 
 import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
-import ChartsPage from 'components/ChartsPage/ChartsPage'
+import ChartsPage from 'containers/ChartsPage/Loadable';
 
 export default function App() {
   return (

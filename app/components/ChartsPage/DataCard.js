@@ -1,4 +1,4 @@
-import { React, Component } from 'react'
+import React, { Component } from 'react'
 
 class DataCard extends Component {
   constructor(props) {
@@ -6,7 +6,7 @@ class DataCard extends Component {
   }
 
   render() {
-    const { dataTitle, dataValue }
+    const { dataTitle, dataValue } = this.props
 
     return (
       <div className="data-card">
@@ -15,6 +15,7 @@ class DataCard extends Component {
       </div>
     )
   }
+
 }
 
 export default DataCard

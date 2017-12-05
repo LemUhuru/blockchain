@@ -1,7 +1,8 @@
-import { React, Component } from 'react'
+import React, { Component } from 'react'
 import Navigation from './Navigation'
 import DataSection from './DataSection'
 import ChartSection from './ChartSection'
+import Header from '../common/Header'
 
 class ChartsPage extends Component {
   constructor(props) {
@@ -10,15 +11,16 @@ class ChartsPage extends Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="row">
-          <div className="flex-col-1">
+      <div className="container-fluid charts-page">
+        <Header />
+        <div className="charts-page__body row">
+          <div className="charts-page__navigation col-3">
             <Navigation />
           </div>
-          <div className="flex-col-1">
+          <div className="charts-page__data-section col-5">
             <DataSection />
           </div>
-          <div className="flex-col-1">
+          <div className="charts-page__chart-section col-4">
             <ChartSection />
           </div>
         </div>
@@ -27,4 +29,4 @@ class ChartsPage extends Component {
   }
 }
 
-export default ChartsMain
+export default ChartsPage
