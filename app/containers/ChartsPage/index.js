@@ -10,12 +10,32 @@
  */
 
 import React, { PureComponent } from 'react';
+import { connect } from 'react-redux'
 import ChartsPage from '../../components/ChartsPage/ChartsPage'
 
-export default class ChartsPageContainer extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+class ChartsPageContainer extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
       <ChartsPage />
     )
   }
 }
+
+const mapStateToProps = state => {
+  const { charts } = state
+  // const { activeSection = 0, blockchainStats = {} } = charts
+
+  return {
+    charts,
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ChartsPage)

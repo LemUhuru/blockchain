@@ -1,8 +1,7 @@
 import fetch from 'isomorphic-fetch'
 import { checkStatus, getFormattedURI } from '../helpers/api'
-import { CHARTS_API_BASE_URL, STATS_API_BASE_URL }
-
-const AVG_BLOCK_SIZE_CHART = 'avg-block-size'
+import { CHARTS_BASE_URL, CHARTS_API_BASE_URL, STATS_API_BASE_URL,
+  AVG_BLOCK_SIZE_CHART } from './constants'
 
 export function getChartData(params) {
   const CHART_URL = getFormattedURI(CHARTS_API_BASE_URL, params)
@@ -15,12 +14,13 @@ export function getChartData(params) {
 }
 
 export function getChartImage(chartName) {
-  return null
+  const CHART_IMG = `${CHARTS_API_BASE_URL}/thumbnail/${chartName}`
+  return CHART_IMG
 }
 
 export function getChartLink(chartName) {
-  // link used in - 'View Chart' button
-  return null
+  const CHART_URL = `${CHARTS_BASE_URL}/${chartName}`
+  return CHART_URL
 }
 
 
