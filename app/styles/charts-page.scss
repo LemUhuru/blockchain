@@ -60,15 +60,20 @@
     }
 
     .data-card {
+      &.active-true {
+        box-shadow: 1px 1px 9px -4px;
+        & .data-card__title {
+          color: #008ed3;
+        }
+      }
       background: #fff;
-      box-shadow: 1px 1px 9px -4px;
       border-radius: 6px;
       padding: 15px;
       margin: 0 auto;
 
       .data-card__title {
         font-size: 22px;
-        color: #008ed3;
+        color: #cacaca;
       }
 
       .data-card__value {

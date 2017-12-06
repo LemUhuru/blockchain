@@ -17,10 +17,14 @@ class DataSection extends Component {
     return (
       <div className="data-section">
         <ul className="data-section__list nav flex-column">
-          {Object.keys(stats).map((title) => {
+          {Object.keys(stats).map((title, index) => {
           return (
             <li className="nav-item">
-              <DataCard dataTitle={title} dataValue={stats[title]} />
+              <DataCard
+                dataTitle={title}
+                dataValue={stats[title]}
+                index={index}
+              />
             </li>
           )})}
         </ul>
