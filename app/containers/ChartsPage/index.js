@@ -12,6 +12,9 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux'
 import ChartsPage from '../../components/ChartsPage/ChartsPage'
+import { createStructuredSelector } from 'reselect';
+import { makeSelectActiveSection, makeSelectBlockchainStats } from './selectors'
+import { updateActiveSection, updateBlockchainStats } from './actions'
 
 class ChartsPageContainer extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
@@ -21,17 +24,15 @@ class ChartsPageContainer extends React.PureComponent { // eslint-disable-line r
   }
 }
 
-const mapStateToProps = state => {
-  const { charts } = state
-  // const { activeSection = 0, blockchainStats = {} } = charts
-
-  return {
-    charts,
-  }
-}
+const mapStateToProps = createStructuredSelector({
+  activeSection: makeSelectActiveSection(),
+  blockchainStats: makeSelectBlockchainStats(),
+})
 
 const mapDispatchToProps = dispatch => {
   return {
+    updateActiveSection: (index) => dispatch(updateActiveSection(index)),
+    updateBlockchainStats: (statsObj) => dispatch(updateBlockchainStats(statsObj))
   }
 }
 

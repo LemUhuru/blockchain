@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 
-class DataCard extends Component {
-  constructor(props) {
-    super(props)
-  }
+export default class DataCard extends Component {
 
   render() {
     const { dataTitle, dataValue } = this.props
@@ -15,7 +12,4 @@ class DataCard extends Component {
       </div>
     )
   }
-
 }
-
-export default DataCard

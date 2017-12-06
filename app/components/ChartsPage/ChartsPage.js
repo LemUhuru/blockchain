@@ -3,17 +3,18 @@ import Navigation from './Navigation'
 import DataSection from './DataSection'
 import ChartSection from './ChartSection'
 import Header from '../common/Header'
+import { getPopularStats } from '../../services/blockchain'
 
 class ChartsPage extends Component {
-  constructor(props) {
-    super(props)
-  }
 
   componentDidMount() {
-    console.log('charts', this.props.charts)
+    // const popularStats = getPopularStats()
+    // this.props.updateBlockchainStats(popularStats)
   }
 
   render() {
+    const { activeSection, updateActiveSection } = this.props
+
     return (
       <div className="container-fluid charts-page">
         <Header />
@@ -23,7 +24,10 @@ class ChartsPage extends Component {
         </div>
         <div className="charts-page__body row">
           <div className="charts-page__navigation col-3">
-            <Navigation />
+            <Navigation
+              activeSection={activeSection}
+              updateActiveSection={updateActiveSection}
+            />
           </div>
           <div className="charts-page__data-section col-5">
             <DataSection />

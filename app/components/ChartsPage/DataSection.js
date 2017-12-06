@@ -1,23 +1,28 @@
 import React, { Component } from 'react'
 import DataCard from './DataCard'
 
+const stats = {
+  "Bitcoins in Circulation": "16,580,500",
+  "Market Price": "$9,449",
+  "Market Capitalization": "165,442,432",
+  "USD Exchange Trade Vol.": "824,488,388",
+}
+
 class DataSection extends Component {
   constructor(props) {
     super(props)
   }
 
   render() {
-    const { dataTitle, dataValue } = this.props
-
     return (
       <div className="data-section">
-        <ul className="data-section__list">
-          <li>Data</li>
-          <li>Currency Statistics</li>
-          <li>Block Details</li>
-          <li>Mining Information</li>
-          <li>Network Activity</li>
-          <li>Wallet Activity</li>
+        <ul className="data-section__list nav flex-column">
+          {Object.keys(stats).map((title) => {
+          return (
+            <li className="nav-item">
+              <DataCard dataTitle={title} dataValue={stats[title]} />
+            </li>
+          )})}
         </ul>
       </div>
     )

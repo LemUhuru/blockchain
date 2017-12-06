@@ -8,5 +8,5 @@ export function updateActiveSection(index) {
 }
 
 export function updateBlockchainStats(statsObj) {
-  return { type: UPDATE_BLOCKCHAIN_STATS, statsObj}
+  return { type: UPDATE_BLOCKCHAIN_STATS, statsObj }
 }

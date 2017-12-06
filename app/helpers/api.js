@@ -1,13 +1,26 @@
+import fetch from 'isomorphic-fetch'
+
 export function checkStatus(response) {
-  return response.join()
-  .then((data) => {
-    const { status } = response
-    if (status >= 200 && status < 300) {
-      return Promise.resolve(data)
-    } else {
-      return Promise.reject({ data, response })
-    }
-  })
+  if (response.status >= 200 && response.status < 300) {
+    return response;
+  }
+
+  const error = new Error(response.statusText);
+  error.response = response;
+  throw error;
+}
+
+export function parseJSON(response) {
+  if (response.status === 204 || response.status === 205) {
+    return null;
+  }
+  return response.json();
+}
+
+export function request(url, params) {
+  return fetch(url, params)
+    .then(checkStatus)
+    .then(parseJSON)
 }
 
 export function encodeFormParams(params = {}) {
