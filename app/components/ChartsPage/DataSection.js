@@ -23,7 +23,7 @@ class DataSection extends Component {
               <DataCard
                 dataTitle={title}
                 dataValue={stats[title]}
-                index={index}
+                isActive={index === 0}
               />
             </li>
           )})}
