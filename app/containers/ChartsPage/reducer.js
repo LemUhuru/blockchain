@@ -23,23 +23,14 @@ const initialState = fromJS({
   }, {}),
 })
 
-export default function chartsPageReducer(state = initialState, action = {}) {
+export default function chartsPageReducer(state = initialState, action = {} ) {
   switch (action.type) {
 
     case UPDATE_ACTIVE_SECTION:
-      return {
-        ...state,
-        activeSection: action.index != null ? action.index : 0
-      }
+      return state.set('activeSection', action.index != null ? action.index : 0)
 
     case UPDATE_BLOCKCHAIN_STATS:
-      return {
-        ...state,
-        blockchainStats: {
-          ...state.blockchainStats,
-          ...action.statsObj,
-        },
-      }
+      return state.setIn(['blockchainStats', action.label], action.statsObj)
 
     default:
       return state;

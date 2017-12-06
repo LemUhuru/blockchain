@@ -9,9 +9,6 @@ const stats = {
 }
 
 class DataSection extends Component {
-  constructor(props) {
-    super(props)
-  }
 
   render() {
     return (

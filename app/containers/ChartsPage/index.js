@@ -32,7 +32,7 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = dispatch => {
   return {
     updateActiveSection: (index) => dispatch(updateActiveSection(index)),
-    updateBlockchainStats: (statsObj) => dispatch(updateBlockchainStats(statsObj))
+    updateBlockchainStats: (label, statsObj) => dispatch(updateBlockchainStats(label, statsObj))
   }
 }
 
