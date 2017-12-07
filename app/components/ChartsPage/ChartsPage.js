@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import Navigation from './Navigation'
 import DataSection from './DataSection'
 import ChartSection from './ChartSection'
@@ -8,12 +8,12 @@ import { getPopularStats } from '../../services/blockchain'
 class ChartsPage extends Component {
 
   componentDidMount() {
-    // const popularStats = getPopularStats()
-    // this.props.updateBlockchainStats(popularStats)
+    const popularStats = getPopularStats()
+    this.props.updateBlockchainStats('Popular', popularStats)
   }
 
   render() {
-    const { activeSection, updateActiveSection } = this.props
+    const { activeSection, updateActiveSection, chartName, activeDataCard, updateChartName } = this.props
 
     return (
       <div className="container-fluid charts-page">
@@ -30,10 +30,15 @@ class ChartsPage extends Component {
             />
           </div>
           <div className="charts-page__data-section col-5">
-            <DataSection />
+            <DataSection
+              activeSection={activeSection}
+              activeDataCard={activeDataCard}
+              updateChartName={updateChartName}
+              updateActiveDataCard={updateActiveSection}
+            />
           </div>
           <div className="charts-page__chart-section col-4">
-            <ChartSection />
+            <ChartSection chartName={chartName} />
           </div>
         </div>
       </div>

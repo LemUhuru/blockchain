@@ -12,8 +12,20 @@ const makeSelectBlockchainStats = () => createSelector(
   (chartState) => chartState.get('blockchainStats')
 )
 
+const makeSelectChartName = () => createSelector(
+  selectCharts,
+  (chartState) => chartState.get('chartName')
+)
+
+const makeSelectActiveDataCard = () => createSelector(
+  selectCharts,
+  (chartState) => chartState.get('activeDataCard')
+)
+
 export {
   selectCharts,
   makeSelectActiveSection,
   makeSelectBlockchainStats,
+  makeSelectChartName,
+  makeSelectActiveDataCard,
 }

@@ -27,6 +27,7 @@
     text-align: center;
     padding-top: 35px;
     padding-bottom: 25px;
+    // padding-bottom: 45px;
 
     .title {
       font-size: 36px;
@@ -46,6 +47,10 @@
       padding-right: 0;
       font-size: 20px;
       text-align: center;
+
+      .nav-item {
+        text-transform: uppercase;
+      }
     }
 
     .charts-page__data-section {
@@ -98,6 +103,7 @@
         max-width: 350px;
         margin-top: 50px;
         margin-bottom: 35px;
+        box-shadow: 0px 1px 13px -3px;
       }
 
       .chart-section__btn {
@@ -111,9 +117,14 @@
   .main-nav {
     a {
       color: #004a7c;
+      font-weight: 400;
+      font-size: 17px;
+      letter-spacing: 1px;
+
       &.active-true {
         color: #fff;
         background-color: #005b98;
+        font-weight: 500;
       }
     }
   }

@@ -1,2 +1,4 @@
 export const UPDATE_ACTIVE_SECTION = 'app/charts/UPDATE_ACTIVE_SECTION'
 export const UPDATE_BLOCKCHAIN_STATS = 'app/charts/UPDATE_BLOCKCHAIN_STATS'
+export const UPDATE_CHART_NAME = 'app/charts/UPDATE_CHART_NAME'
+export const UPDATE_ACTIVE_DATA_CARD = 'app/charts/UPDATE_ACTIVE_DATA_CARD'

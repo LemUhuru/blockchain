@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
-const chartPng = "https://api.blockchain.info/charts/thumbnail/total-bitcoins.png" // temp hardcode
+import { getChartImageURL } from 'helpers/charts'
 
-class ChartSection extends Component {
-  constructor(props) {
-    super(props)
-  }
+export default class ChartSection extends Component {
 
   render() {
-    const { description } = this.props
+    const { chartName, description } = this.props
+    const chartImg = getChartImageURL(chartName)
 
     return (
       <div className="chart-section">
@@ -16,13 +14,10 @@ class ChartSection extends Component {
           The total number of bitcoins that have already been mined.
         </div>
         <div className="chart-container">
-          <img className="chart-section__img" src={chartPng} alt="blockchain chart" />
+          <img className="chart-section__img" src={chartImg} alt="blockchain chart" />
         </div>
         <input className="btn btn-primary btn-lg chart-section__btn" type="button" value="View Chart" />
       </div>
     )
   }
 }
-// #0150a5
-
-export default ChartSection

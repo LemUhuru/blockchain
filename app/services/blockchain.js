@@ -11,11 +11,6 @@ export function getChartData(params = {}) {
     })
 }
 
-export function getChartImage(chartName) {
-  const CHART_IMG = `${CHARTS_API_BASE_URL}/thumbnail/${chartName}`
-  return CHART_IMG
-}
-
 export function getChartLink(chartName) {
   const CHART_URL = `${CHARTS_BASE_URL}/${chartName}`
   return CHART_URL

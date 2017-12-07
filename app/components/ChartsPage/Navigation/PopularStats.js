@@ -4,7 +4,7 @@ export default class PopularStats extends Component {
 
   render() {
     const { index, activeSection, handleNavClick } = this.props
-    const isActive = activeSection == index
+    const isActive = activeSection === index
 
     return (
       <li className="nav-item">
