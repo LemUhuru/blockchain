@@ -67,16 +67,18 @@
     }
 
     .data-card {
+      background: #fff;
+      border-radius: 6px;
+      padding: 15px;
+      margin: 0 auto;
+      cursor: pointer;
+
       &.active-true {
         box-shadow: 1px 1px 9px -4px;
         & .data-card__title {
           color: #008ed3;
         }
       }
-      background: #fff;
-      border-radius: 6px;
-      padding: 15px;
-      margin: 0 auto;
 
       .data-card__title {
         font-size: 22px;
@@ -110,6 +112,11 @@
         width: 180px;
         font-weight: 300;
         background-color: #005cbf;
+        cursor: pointer;
+
+        &:focus {
+          background-color: #005cbf
+        }
       }
     }
   }

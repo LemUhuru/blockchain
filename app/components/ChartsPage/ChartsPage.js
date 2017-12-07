@@ -13,7 +13,13 @@ class ChartsPage extends Component {
   }
 
   render() {
-    const { activeSection, updateActiveSection, chartName, activeDataCard, updateChartName } = this.props
+    const {
+      activeSection,
+      updateActiveSection,
+      updateActiveDataCard,
+      chartName,
+      activeDataCard,
+      updateChartName } = this.props
 
     return (
       <div className="container-fluid charts-page">
@@ -34,7 +40,7 @@ class ChartsPage extends Component {
               activeSection={activeSection}
               activeDataCard={activeDataCard}
               updateChartName={updateChartName}
-              updateActiveDataCard={updateActiveSection}
+              updateActiveDataCard={updateActiveDataCard}
             />
           </div>
           <div className="charts-page__chart-section col-4">

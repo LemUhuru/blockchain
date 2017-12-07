@@ -1,4 +1,4 @@
-import { request, getFormattedURI } from '../helpers/api'
+import { request, getFormattedURI } from 'helpers/api'
 import { CHARTS_BASE_URL, CHARTS_API_BASE_URL, STATS_API_BASE_URL,
   AVG_BLOCK_SIZE_CHART } from './constants'
 
@@ -19,11 +19,13 @@ export function getChartLink(chartName) {
 
 export function getBlockChainStats(params = {}) {
   const STATS_URL = getFormattedURI(STATS_API_BASE_URL, params)
-  return request(STATS_URL)
-    .then(response => { return response })
-    .catch(response => {
-      return Promise.reject(`Error: ${response.error}`)
-    })
+  return request(STATS_URL, {
+    mode: 'no-cors',
+  })
+  .then(response => { return response })
+  .catch(response => {
+    return Promise.reject(`Error: ${response.error}`)
+  })
 }
 
 

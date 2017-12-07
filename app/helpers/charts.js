@@ -1,5 +1,5 @@
 import { chartMap } from 'tests/Data/ChartsPage'
-import { CHARTS_API_BASE_URL } from 'services/constants'
+import { CHARTS_API_BASE_URL, CHARTS_BASE_URL } from 'services/constants'
 
 export function getChartAPIName(chartLabel) {
   if (typeof chartLabel === 'string' && chartLabel != null) {
@@ -12,4 +12,9 @@ export function getChartAPIName(chartLabel) {
 export function getChartImageURL(chartName) {
   const CHART_IMG = `${CHARTS_API_BASE_URL}/thumbnail/${chartName}`
   return CHART_IMG
+}
+
+export function getChartURL(chartName) {
+  const URL = `${CHARTS_BASE_URL}/${chartName}`
+  return URL
 }
