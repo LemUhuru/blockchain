@@ -17,8 +17,8 @@ export const navSections = {
 
 const initialState = fromJS({
   activeSection: 0 /* active navigation section */,
-  activeDataCard: '',
-  chartName: 'market-price',
+  activeDataCard: '0-0',
+  chartName: '',
   blockchainStats: Object.values(navSections).reduce((a,b) => {
     return {
       ...a,
@@ -31,7 +31,8 @@ export default function chartsPageReducer(state = initialState, action = {} ) {
   switch (action.type) {
 
     case UPDATE_ACTIVE_SECTION:
-      return state.set('activeSection', action.index != null ? action.index : 0)
+      return state
+        .set('activeSection', action.index != null ? action.index : 0)
 
     case UPDATE_BLOCKCHAIN_STATS:
       return state.setIn(['blockchainStats', action.label], action.statsObj)

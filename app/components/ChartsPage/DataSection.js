@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import DataCard from './DataCard'
-import { blockchainStats } from '../../tests/Data/ChartsPage'
-import { navSections } from '../../containers/ChartsPage/reducer'
+import { blockchainStats } from 'tests/Data/ChartsPage'
+import { navSections } from 'containers/ChartsPage/reducer'
 
 class DataSection extends Component {
 
@@ -18,6 +18,7 @@ class DataSection extends Component {
                 <DataCard
                   dataTitle={title}
                   dataValue={activeStats[title]}
+                  activeSection={activeSection}
                   activeDataCard={activeDataCard}
                   updateChartName={updateChartName}
                   updateActiveDataCard={updateActiveDataCard}

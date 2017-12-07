@@ -10,6 +10,7 @@ class ChartsPage extends Component {
   componentDidMount() {
     const popularStats = getPopularStats()
     this.props.updateBlockchainStats('Popular', popularStats)
+    this.props.updateActiveSection(0)
   }
 
   render() {

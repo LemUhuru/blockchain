@@ -17,15 +17,6 @@ export default class DataCard extends Component {
     updateChartName(chartName)
   }
 
-  componentDidMount() {
-    const { activeSection, dataTitle, updateActiveDataCard, updateChartName } = this.props
-    const chartName = getChartAPIName(dataTitle)
-    const activeDataCard = `${activeSection}-${0}`
-
-    updateActiveDataCard(activeDataCard)
-    updateChartName(chartName)
-  }
-
   render() {
     const { dataTitle, dataValue, activeSection, activeDataCard, index } = this.props
     const isActive = activeDataCard === `${activeSection}-${index}`

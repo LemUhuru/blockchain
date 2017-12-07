@@ -11,10 +11,15 @@
 
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux'
+import { compose } from 'redux'
 import ChartsPage from '../../components/ChartsPage/ChartsPage'
 import { createStructuredSelector } from 'reselect';
 import { makeSelectActiveSection, makeSelectBlockchainStats, makeSelectChartName, makeSelectActiveDataCard } from './selectors'
 import { updateActiveSection, updateBlockchainStats, updateChartName, updateActiveDataCard } from './actions'
+
+import injectSaga from 'utils/injectSaga';
+import { RESTART_ON_REMOUNT } from 'utils/constants';
+import saga from './saga';
 
 class ChartsPageContainer extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
@@ -40,7 +45,10 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+const withConnect = connect(mapStateToProps, mapDispatchToProps)
+const withSaga = injectSaga({ key: 'ChartsPage', saga, mode: RESTART_ON_REMOUNT });
+
+export default compose(
+  withSaga,
+  withConnect,
 )(ChartsPage)
