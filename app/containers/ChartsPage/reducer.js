@@ -17,7 +17,7 @@ export const navSections = {
 
 const initialState = fromJS({
   activeSection: 0 /* active navigation section */,
-  activeDataCard: 'Bitcoins in Circulation',
+  activeDataCard: '',
   chartName: 'market-price',
   blockchainStats: Object.values(navSections).reduce((a,b) => {
     return {

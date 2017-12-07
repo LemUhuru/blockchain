@@ -9,16 +9,26 @@ export default class DataCard extends Component {
   }
 
   handleCardClick(event) {
-    const { dataTitle, updateChartName, updateActiveDataCard } = this.props
+    const { dataTitle, index, activeSection, updateChartName, updateActiveDataCard } = this.props
     const chartName = getChartAPIName(dataTitle)
+    const activeDataCard = `${activeSection}-${index}`
 
-    updateActiveDataCard(dataTitle)
+    updateActiveDataCard(activeDataCard)
+    updateChartName(chartName)
+  }
+
+  componentDidMount() {
+    const { activeSection, dataTitle, updateActiveDataCard, updateChartName } = this.props
+    const chartName = getChartAPIName(dataTitle)
+    const activeDataCard = `${activeSection}-${0}`
+
+    updateActiveDataCard(activeDataCard)
     updateChartName(chartName)
   }
 
   render() {
-    const { dataTitle, dataValue, activeDataCard } = this.props
-    const isActive = activeDataCard === dataTitle
+    const { dataTitle, dataValue, activeSection, activeDataCard, index } = this.props
+    const isActive = activeDataCard === `${activeSection}-${index}`
 
     return (
       <div onClick={this.handleCardClick} className={`data-card active-${isActive}`}>

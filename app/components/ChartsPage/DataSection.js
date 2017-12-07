@@ -21,6 +21,7 @@ class DataSection extends Component {
                   activeDataCard={activeDataCard}
                   updateChartName={updateChartName}
                   updateActiveDataCard={updateActiveDataCard}
+                  index={index}
                 />
               </li>
           )})}
