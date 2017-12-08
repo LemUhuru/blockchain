@@ -116,7 +116,7 @@ module.exports = (options) => ({
     fs: 'empty',
     net: 'empty',
     tls: 'empty'
-  }
+  },
   devtool: options.devtool,
   target: 'web', // Make web variables accessible to webpack, e.g. window
   performance: options.performance || {},

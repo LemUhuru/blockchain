@@ -6,6 +6,9 @@ import { blockchainStats, chartMap } from 'tests/Data/ChartsPage'
 import { getChartImageURL, getChartURL } from 'helpers/charts'
 import { navSections } from 'containers/ChartsPage/reducer'
 
+/**
+ * Set Default Car and Chart Data
+ */
 export function* setDefaultDataCard() {
   const activeSection = yield select(makeSelectActiveSection())
   const activeDataCard = `${activeSection}-0`
@@ -23,17 +26,11 @@ export function* setDefaultChart() {
   yield put(updateChartName(formattedChartName))
 }
 
-export default function* defaultStates() {
-  yield [
-    takeLatest(UPDATE_ACTIVE_SECTION, setDefaultDataCard),
-    takeLatest(UPDATE_ACTIVE_SECTION, setDefaultChart),
-  ]
-}
 
 // /**
 //  * Github repos request/response handler
 //  */
-// export function* getRepos() {
+// export function* fetch() {
 //
 //   // Select username from store
 //   const username = yield select(makeSelectUsername());
@@ -47,3 +44,12 @@ export default function* defaultStates() {
 //     yield put(repoLoadingError(err));
 //   }
 // }
+
+
+
+export default function* defaultStates() {
+  yield [
+    takeLatest(UPDATE_ACTIVE_SECTION, setDefaultDataCard),
+    takeLatest(UPDATE_ACTIVE_SECTION, setDefaultChart),
+  ]
+}
