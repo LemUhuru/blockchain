@@ -112,7 +112,7 @@ module.exports = (options) => ({
     ],
   },
   node: {
-    console: false,
+    console: true,
     fs: 'empty',
     net: 'empty',
     tls: 'empty'
