@@ -3,8 +3,11 @@ import { fromJS } from 'immutable';
 import {
   UPDATE_ACTIVE_SECTION,
   UPDATE_CHART_NAME,
-  UPDATE_BLOCKCHAIN_STATS,
   UPDATE_ACTIVE_DATA_CARD,
+  UPDATE_BLOCKCHAIN_STATS,
+  LOAD_STATS,
+  LOAD_STATS_SUCCESS,
+  LOAD_STATS_ERROR,
 } from './constants';
 
 export const POPULAR_INDEX = 0
@@ -19,6 +22,8 @@ const initialState = fromJS({
   activeSection: 0 /* active navigation section */,
   activeDataCard: '0-0',
   chartName: '',
+  loading: false,
+  error: false,
   blockchainStats: Object.values(navSections).reduce((a, b) => {
     return {
       ...a,
@@ -42,6 +47,22 @@ export default function chartsPageReducer(state = initialState, action = {} ) {
 
     case UPDATE_ACTIVE_DATA_CARD:
       return state.set('activeDataCard', action.title)
+
+    case LOAD_STATS:
+      return state
+        .set('loading', true)
+        .set('error', false)
+
+    case LOAD_STATS_SUCCESS:
+      return state
+        .set('loading', false)
+        .set('error', false)
+        // .setIn(['blockchainStats', action.label], action.statsObj)
+
+    case LOAD_STATS_ERROR:
+      return state
+        .set('loading', false)
+        .set('error', true)
 
     default:
       return state;

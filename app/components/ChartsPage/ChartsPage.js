@@ -8,8 +8,7 @@ import { getPopularStats } from '../../services/blockchain'
 class ChartsPage extends Component {
 
   componentDidMount() {
-    const popularStats = getPopularStats()
-    this.props.updateBlockchainStats('Popular', popularStats)
+    // this.props.fetchBlockchainStats()
     this.props.updateActiveSection(0)
   }
 
