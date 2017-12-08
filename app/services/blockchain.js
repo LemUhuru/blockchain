@@ -1,75 +1,92 @@
 import { request, getFormattedURI } from 'helpers/api'
 import { CHARTS_BASE_URL, CHARTS_API_BASE_URL, STATS_API_BASE_URL,
-  AVG_BLOCK_SIZE_CHART } from './constants'
+  AVG_BLOCK_SIZE_CHART, MARKET_PRICE, MARKET_CAP, MEMPOOL_SIZE,
+  USD_TRADE_VOLUME, TOTAL_BITCOINS, TX_PER_DAY
+} from './constants'
 
-export function getChartData(params = {}) {
-  const CHART_URL = getFormattedURI(CHARTS_API_BASE_URL, params)
-  return request(CHART_URL)
+export function getChartData(chartName, params = {}) {
+  const newParams = params
+  newParams.chartName = chartName
+  const CHART_URL = getFormattedURI(CHARTS_API_BASE_URL, newParams)
+
+  request(CHART_URL)
     .then(response => { return response })
-    .catch(response => {
-      return Promise.reject(`Error: ${response.error}`)
-    })
+    .catch(response => { return `Error: ${response.error}` })
 }
 
-export function getChartLink(chartName) {
-  const CHART_URL = `${CHARTS_BASE_URL}/${chartName}`
-  return CHART_URL
+export function getBlockChainStats() {
+  const STATS_URL = getFormattedURI(STATS_API_BASE_URL)
+
+  request(STATS_URL, { mode: 'no-cors' })
+    .then(response => { return response })
+    .catch(response => { return `Error: ${response.error}` })
 }
-
-
-export function getBlockChainStats(params = {}) {
-  const STATS_URL = getFormattedURI(STATS_API_BASE_URL, params)
-  return request(STATS_URL, {
-    mode: 'no-cors',
-  })
-  .then(response => { return response })
-  .catch(response => {
-    return Promise.reject(`Error: ${response.error}`)
-  })
-}
-
 
 export function getMarketPrice(params = {}) {
-  const marketPrice = getBlockChainStats().market_price_usd
-  return marketPrice
+  return getBlockChainStats().market_price_usd
 }
 
 export function getAvgBlockSizeChart(params = {}) {
-  const { chartName } = params
-  return getChartData({ chartName: AVG_BLOCK_SIZE_CHART })
-    .then(data => {
-      const { values } = data
-      const currentAvg = values.pop().y.toFixed(2)
-      return currentAvg
-    }).catch(response => {response.error})
+  getChartData(AVG_BLOCK_SIZE_CHART, params)
+  .then((data) => { return data.values.pop().y.toFixed(2) })
+  .catch(response => { return response.error })
 }
 
-export function getTXPerDayChart() {
+export function getTXPerDay(params = {}) {
+  getChartData(TX_PER_DAY, params)
+    .then(data => { return data.values.pop().y })
+    .catch(response => { return response.error })
 }
 
-export function getMemPoolSizeChart() {
+export function getMemPoolSize(params = {}) {
+  getChartData(MEMPOOL_SIZE, params)
+  .then(data => { return data.values.pop().y })
+  .catch(response => { return response.error })
 }
 
-export function getTotalBitcoins() {
+export function getTotalBitcoins(params = {}) {
+  getChartData(TOTAL_BITCOINS, params)
+  .then(data => { return data.values.pop().y })
+  .catch(response => { return response.error })
 }
 
-export function getMarketCap() {
+export function getMarketCap(params = {}) {
+  getChartData(MARKET_CAP, params)
+  .then(data => { return data.values.pop().y })
+  .catch(response => { return response.error })
 }
 
-export function getUSDTradeVol() {
+export function getUSDTradeVol(params = {}) {
+  getChartData(USD_TRADE_VOLUME, params)
+  .then(data => { return data.values.pop().y })
+  .catch(response => { return response.error })
 }
 
-export function getPopularStats(params = {}) {
-  let popularStats = {
-    marketPrice: getMarketPrice(),
-    averageBlockSize: null,
-    txPerDay: null,
-    mempoolSize: null,
-  }
-
-  return popularStats
-}
-
-export function getCurrencyStats(params = {}) {
-  return null
-}
+// export function getPopularStats() {
+//   Promise.all([
+//     getMarketPrice(),
+//     getAvgBlockSize(),
+//     getTXPerDay(),
+//     getMemPoolSize(),
+//   ])
+//   .then(stats => {
+//     stats.map(stat => {
+//       return {}
+//     })
+//   })
+//   const popularStats = {
+//     "Market Price": getMarketPrice(),
+//     "Average Block Size": getAvgBlockSize(),
+//     "Transactions per Day": getTXPerDay(),
+//     "Mempool Size": getMemPoolSize(),
+//   }
+//
+//   return popularStats
+// }
+//
+// export function getCurrencyStats() {
+//   const currencyState = {
+//
+//   }
+//   return null
+// }

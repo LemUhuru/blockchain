@@ -19,7 +19,7 @@ const initialState = fromJS({
   activeSection: 0 /* active navigation section */,
   activeDataCard: '0-0',
   chartName: '',
-  blockchainStats: Object.values(navSections).reduce((a,b) => {
+  blockchainStats: Object.values(navSections).reduce((a, b) => {
     return {
       ...a,
       [b]: {}
