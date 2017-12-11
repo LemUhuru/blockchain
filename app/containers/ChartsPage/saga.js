@@ -26,27 +26,6 @@ export function* setDefaultChart() {
   yield put(updateChartName(formattedChartName))
 }
 
-
-// /**
-//  * Github repos request/response handler
-//  */
-// export function* fetch() {
-//
-//   // Select username from store
-//   const username = yield select(makeSelectUsername());
-//   const requestURL = `https://api.github.com/users/${username}/repos?type=all&sort=updated`;
-//
-//   try {
-//     // Call our request helper (see 'utils/request')
-//     const repos = yield call(request, requestURL);
-//     yield put(reposLoaded(repos, username));
-//   } catch (err) {
-//     yield put(repoLoadingError(err));
-//   }
-// }
-
-
-
 export default function* defaultStates() {
   yield [
     takeLatest(UPDATE_ACTIVE_SECTION, setDefaultDataCard),

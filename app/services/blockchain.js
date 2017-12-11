@@ -1,7 +1,13 @@
 import { request, getFormattedURI } from 'helpers/api'
-import { CHARTS_BASE_URL, CHARTS_API_BASE_URL, STATS_API_BASE_URL,
-  AVG_BLOCK_SIZE_CHART, MARKET_PRICE, MARKET_CAP, MEMPOOL_SIZE,
-  USD_TRADE_VOLUME, TOTAL_BITCOINS, TX_PER_DAY
+import {
+  CHARTS_API_BASE_URL,
+  STATS_API_BASE_URL,
+  AVG_BLOCK_SIZE_CHART,
+  MARKET_CAP,
+  MEMPOOL_SIZE,
+  USD_TRADE_VOLUME,
+  TOTAL_BITCOINS,
+  TX_PER_DAY
 } from './constants'
 
 export function getChartData(chartName, params = {}) {
